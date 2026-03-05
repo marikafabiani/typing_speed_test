@@ -1,0 +1,17 @@
+.option {
+  padding: var(--space-xs);
+  background-color: var(--neutral-900);
+  border-radius: var(--space-sm);
+  border: 1px solid var(--neutral-700);
+  font-size: 0.875rem;
+  font-weight: 200;
+}
+.option:hover {
+  color: var(--blue-400);
+  border-color: var(--blue-400);
+}
+
+.option-selected {
+  border-color: var(--blue-400) !important;
+  color: var(--blue-400);
+}
