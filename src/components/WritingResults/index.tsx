@@ -9,11 +9,11 @@ export const WritingResults = ({
 }) => {
   return (
     <div className="flex flex-row gap-4">
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 border-r border-neutral-700 pr-4">
         <span className="text-neutral-500">WPM:</span>
         <span>{wpm}</span>
       </div>
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 border-r border-neutral-700 pr-4">
         <span className="text-neutral-500">Accuracy:</span>
         <span>{accuracy}%</span>
       </div>

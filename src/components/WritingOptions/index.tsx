@@ -1,46 +1,52 @@
-import { useState } from "react";
 import "./styles.css";
+import type { Difficulty } from "../../pages/Homepage/types";
+import { capitalize } from "../../utils";
 
-export const WritingOptions = () => {
-  const difficulties = ["Easy", "Medium", "Hard"];
+export const WritingOptions = ({
+  setDifficulty,
+  difficulty,
+  setMode,
+  mode,
+}: {
+  setDifficulty: (difficulty: Difficulty) => void;
+  difficulty: Difficulty;
+  setMode: (mode: string) => void;
+  mode: string;
+}) => {
+  const difficulties: Difficulty[] = ["easy", "medium", "hard"];
   const modes = ["Timed (60s)", "Passage"];
 
-  const [selectedDifficulty, setSelectedDifficulty] = useState<string>(
-    difficulties[0],
-  );
-  const [selectedMode, setSelectedMode] = useState<string>(modes[0]);
-
-  const handleDifficultyChange = (difficulty: string) => {
-    setSelectedDifficulty(difficulty);
+  const handleDifficultyChange = (difficulty: Difficulty) => {
+    setDifficulty(difficulty);
   };
 
   const handleModeChange = (mode: string) => {
-    setSelectedMode(mode);
+    setMode(mode);
   };
 
   return (
     <div className="flex flex-row gap-4">
-      <div className="flex flex-row gap-1 items-center">
+      <div className="flex flex-row gap-1 items-center border-r border-neutral-700 pr-4">
         <span className="text-neutral-500 text-sm">Difficulty:</span>
-        {difficulties.map((difficulty) => (
+        {difficulties.map((diff) => (
           <button
-            key={difficulty}
-            className={`option ${selectedDifficulty === difficulty ? "option-selected" : ""}`}
-            onClick={() => handleDifficultyChange(difficulty)}
+            key={diff}
+            className={`option ${difficulty === diff ? "option-selected" : ""}`}
+            onClick={() => handleDifficultyChange(diff)}
           >
-            {difficulty}
+            {capitalize(diff)}
           </button>
         ))}
       </div>
       <div className="flex flex-row gap-1 items-center">
         <span className="text-neutral-500 text-sm">Mode:</span>
-        {modes.map((mode) => (
+        {modes.map((m) => (
           <button
-            key={mode}
-            className={`option ${selectedMode === mode ? "option-selected" : ""}`}
-            onClick={() => handleModeChange(mode)}
+            key={m}
+            className={`option ${mode === m ? "option-selected" : ""}`}
+            onClick={() => handleModeChange(m)}
           >
-            {mode}
+            {m}
           </button>
         ))}
       </div>

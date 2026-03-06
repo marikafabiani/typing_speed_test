@@ -1,7 +1,7 @@
 import "./App.css";
 import { Header } from "./components/Header";
 import { Routes, Route } from "react-router-dom";
-import { NotStartedPage } from "./pages";
+import { Homepage } from "./pages";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Header />
       <div className="content">
         <Routes>
-          <Route path="/" element={<NotStartedPage />} />
+          <Route path="/" element={<Homepage />} />
         </Routes>
       </div>
     </div>

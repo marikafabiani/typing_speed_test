@@ -1,1 +1,1 @@
-export * from "./NotStartedPage";
+export * from "./Homepage";
